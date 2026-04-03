@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Kuti Tika</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@300;400&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* REDES ARRIBA */
+.redes-top {
+    position: fixed;
+    top: 10px;
+    left: 15px;
+    z-index: 2000;
+}
+.redes-top img {
+    width: 25px;
+    margin: 5px;
+    transition: 0.3s;
+}
+.redes-top img:hover { transform: scale(1.2); }
+
+/* NAV */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    background: #ec407a;
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* INICIO */
+.inicio {
+    height: 100vh;
+    background: url("fondo2.png") center/cover;
+}
+
+.overlay {
+    background: rgba(255,255,255,0.7);
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenido-inicio {
+    text-align: center;
+    max-width: 800px;
+    padding: 20px;
+    animation: fadeIn 1.5s ease;
+}
+
+.contenido-inicio h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 70px;
+    color: #d81b60;
+}
+
+.contenido-inicio p {
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+/* BOTÓN */
+.btn {
+    background: #d81b60;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+.btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 5px 15px rgba(216,27,96,0.4);
+}
+
+/* SECCIÓN */
+.seccion {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+/* CATEGORÍAS */
+.categorias {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+.categoria {
+    cursor: pointer;
+    transition: 0.3s;
+}
+.categoria img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+.categoria:hover { transform: scale(1.2); }
+
+/* PRODUCTOS (OCULTOS AL INICIO) */
+.productos {
+    display: none;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.productos.mostrar {
+    display: flex;
+    animation: aparecer 0.8s ease;
+}
+
+@keyframes aparecer {
+    from { opacity:0; transform: translateY(30px); }
+    to { opacity:1; transform: translateY(0); }
+}
+
+/* CARDS */
+.card {
+    width: 250px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: 0.4s;
+}
+.card:hover {
+    transform: translateY(-10px) scale(1.05);
+}
+.card img {
+    width: 100%;
+    height: 180px;
+    border-radius: 15px 15px 0 0;
+}
+.precio {
+    color: #d81b60;
+    font-weight: bold;
+}
+
+/* FOOTER */
+.contacto {
+    background: #f5d6d6;
+    padding: 60px 20px;
+}
+.footer-contenido {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.col { max-width: 250px; }
+
+.logo {
+    font-family: 'Pacifico', cursive;
+    color: #d81b60;
+}
+
+.redes-footer img {
+    width: 22px;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+.redes-footer img:hover { transform: scale(1.2); }
+
+.pagos-footer img {
+    width: 25px;
+    margin: 5px;
+}
+
+/* WHATSAPP */
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25d366;
+    padding: 12px;
+    border-radius: 50%;
+}
+.whatsapp img { width: 35px; }
+
+@keyframes fadeIn {
+    from { opacity:0; transform: translateY(20px); }
+    to { opacity:1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- REDES -->
+<div class="redes-top">
+<a href="https://www.facebook.com/profile.php?id=61575739420670" target="_blank">
+<img src="fb.png">
+</a>
+<img src="ig.png" style="opacity:0.4;">
+<img src="tiktok.png" style="opacity:0.4;">
+</div>
+
+<!-- NAV -->
+<nav>
+<a href="#inicio">Inicio</a>
+<a href="#catalogo">Catálogo</a>
+<a href="#contacto">Contacto</a>
+</nav>
+
+<!-- INICIO -->
+<section id="inicio" class="inicio">
+<div class="overlay">
+<div class="contenido-inicio">
+
+<h1>Kuti Tika</h1>
+
+<p>
+Proveniente del Quechua "VOLVER A FLORECER".<br><br>
+Arte inspirado en la belleza resiliente de las orquídeas,
+celebra los nuevos comienzos, la transformación
+y la fuerza interior que todos llevamos dentro.
+</p>
+
+<a href="#catalogo" class="btn">Ver Catálogo</a>
+
+</div>
+</div>
+</section>
+
+<!-- CATÁLOGO -->
+<section id="catalogo" class="seccion">
+
+<h2>Catálogo</h2>
+
+<div class="categorias">
+
+<div class="categoria" onclick="filtrar('orquidea')">
+<img src="orquideasol.png">
+<p>Orquídeas</p>
+</div>
+
+<div class="categoria" onclick="filtrar('rosa')">
+<img src="rosaroja.png">
+<p>Rosas</p>
+</div>
+
+</div>
+
+<div id="productos" class="productos">
+
+<div class="card orquidea">
+<img src="orquideablanca.png">
+<p>Orquídea Blanca</p>
+<p class="precio">S/ 55</p>
+</div>
+
+<div class="card orquidea">
+<img src="orquideasol.png">
+<p>Orquídea Sol</p>
+<p class="precio">S/ 50</p>
+</div>
+
+<div class="card rosa">
+<img src="rosaamarilla.png">
+<p>Rosa Amarilla</p>
+<p class="precio">S/ 35</p>
+</div>
+
+<div class="card rosa">
+<img src="rosaroja.png">
+<p>Rosa Roja</p>
+<p class="precio">S/ 30</p>
+</div>
+
+<div class="card rosa">
+<img src="rosaazul.png">
+<p>Rosa Azul</p>
+<p class="precio">S/ 40</p>
+</div>
+
+</div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="contacto">
+
+<div class="footer-contenido">
+
+<div class="col">
+<h2 class="logo">Kuti Tika</h2>
+<p>Arreglos florales con estilo y elegancia.</p>
+
+<div class="redes-footer">
+<a href="https://www.facebook.com/profile.php?id=61575739420670" target="_blank">
+<img src="fb.png">
+</a>
+<img src="ig.png" style="opacity:0.4;">
+<img src="tiktok.png" style="opacity:0.4;">
+</div>
+</div>
+
+<div class="col">
+<h3>Información</h3>
+<p>Lima, Perú</p>
+</div>
+
+<div class="col">
+<h3>Pagos</h3>
+<div class="pagos-footer">
+<img src="yape.png">
+<img src="plin.png">
+<img src="https://cdn-icons-png.flaticon.com/512/196/196578.png">
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/51945283024" class="whatsapp">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+</a>
+
+<script>
+function filtrar(tipo) {
+let contenedor = document.getElementById("productos");
+let productos = document.querySelectorAll(".card");
+
+contenedor.classList.add("mostrar");
+
+productos.forEach(p => {
+p.style.display = p.classList.contains(tipo) ? "block" : "none";
+});
+}
+</script>
+
+</body>
+</html>
