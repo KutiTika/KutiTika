@@ -48,21 +48,8 @@ font-weight:bold;
 
 body{padding-top:70px;}
 
-/* REDES */
-.redes-top{
-position:fixed;
-top:15px;
-left:15px;
-display:flex;
-gap:10px;
-z-index:1100;
-}
-
-.redes-top img{
-width:24px;
-}
-
 /* INICIO */
+
 .inicio{
 min-height:100vh;
 display:flex;
@@ -94,18 +81,21 @@ margin-top:10px;
 }
 
 /* ANIMACIÓN */
+
 @keyframes fadeIn{
 from{opacity:0;transform:translateY(20px);}
 to{opacity:1;transform:translateY(0);}
 }
 
 /* SECCIONES */
+
 .seccion{
 padding:60px 20px;
 text-align:center;
 }
 
-/* 🔥 CATEGORÍAS (ARREGLADO) */
+/* CATEGORÍAS */
+
 .categorias{
 display:flex;
 justify-content:center;
@@ -133,12 +123,16 @@ transition:0.3s;
 transform:scale(1.1);
 }
 
-/* 🔥 PRODUCTOS PRO */
+/* PRODUCTOS */
+
 .productos{
 display:none;
 margin-top:40px;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 gap:20px;
+max-width:900px;
+margin-left:auto;
+margin-right:auto;
 }
 
 .productos.mostrar{
@@ -151,15 +145,16 @@ border-radius:15px;
 overflow:hidden;
 box-shadow:0 8px 15px rgba(0,0,0,0.2);
 transition:0.3s;
+cursor:pointer;
 }
 
 .card:hover{
-transform:translateY(-5px);
+transform:scale(1.03);
 }
 
 .card img{
 width:100%;
-height:180px;
+height:200px;
 object-fit:cover;
 }
 
@@ -169,6 +164,7 @@ font-weight:bold;
 }
 
 /* CONTACTO */
+
 .contacto{
 background:rgba(255,255,255,0.9);
 padding:40px 20px;
@@ -194,6 +190,7 @@ margin:5px;
 }
 
 /* WHATSAPP */
+
 .whatsapp{
 position:fixed;
 bottom:20px;
@@ -204,7 +201,29 @@ right:20px;
 width:50px;
 }
 
-/* 📱 MOBILE */
+/* VISOR IMAGEN */
+
+#visor{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+z-index:2000;
+}
+
+#visor img{
+max-width:90%;
+max-height:90%;
+border-radius:10px;
+}
+
+/* MOBILE */
+
 @media(max-width:600px){
 
 h1{font-size:30px;}
@@ -215,7 +234,7 @@ height:80px;
 }
 
 .card img{
-height:150px;
+height:160px;
 }
 
 }
@@ -224,15 +243,6 @@ height:150px;
 </head>
 
 <body>
-
-<!-- REDES -->
-<div class="redes-top">
-<a href="https://www.facebook.com/profile.php?id=61575739420670" target="_blank">
-<img src="fb.png">
-</a>
-<img src="ig.png">
-<img src="tiktok.png">
-</div>
 
 <!-- NAV -->
 <nav>
@@ -243,6 +253,7 @@ height:150px;
 
 <!-- INICIO -->
 <section id="inicio" class="inicio">
+
 <div class="contenido-inicio">
 
 <h1>Kuti Tika</h1>
@@ -257,9 +268,11 @@ y la fuerza interior que todos llevamos dentro.
 <a href="#catalogo" class="btn">Ver Catálogo</a>
 
 </div>
+
 </section>
 
 <!-- CATÁLOGO -->
+
 <section id="catalogo" class="seccion">
 
 <h2>Catálogo</h2>
@@ -281,31 +294,31 @@ y la fuerza interior que todos llevamos dentro.
 <div id="productos" class="productos">
 
 <div class="card orquidea">
-<img src="orquideablanca.png">
+<img src="orquideablanca.png" onclick="abrirImagen(this.src)">
 <p>Orquídea Blanca</p>
 <p class="precio">S/55</p>
 </div>
 
 <div class="card orquidea">
-<img src="orquideasol.png">
+<img src="orquideasol.png" onclick="abrirImagen(this.src)">
 <p>Orquídea Sol</p>
 <p class="precio">S/50</p>
 </div>
 
 <div class="card rosa">
-<img src="rosaroja.png">
+<img src="rosaroja.png" onclick="abrirImagen(this.src)">
 <p>Rosa Roja</p>
 <p class="precio">S/30</p>
 </div>
 
 <div class="card rosa">
-<img src="rosaamarilla.png">
+<img src="rosaamarilla.png" onclick="abrirImagen(this.src)">
 <p>Rosa Amarilla</p>
 <p class="precio">S/35</p>
 </div>
 
 <div class="card rosa">
-<img src="rosaazul.png">
+<img src="rosaazul.png" onclick="abrirImagen(this.src)">
 <p>Rosa Azul</p>
 <p class="precio">S/40</p>
 </div>
@@ -315,6 +328,7 @@ y la fuerza interior que todos llevamos dentro.
 </section>
 
 <!-- CONTACTO -->
+
 <section id="contacto" class="contacto">
 
 <div class="footer">
@@ -351,12 +365,21 @@ y la fuerza interior que todos llevamos dentro.
 </section>
 
 <!-- WHATSAPP -->
+
 <a href="https://wa.me/51945283024" class="whatsapp">
 <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
 </a>
 
+<!-- VISOR -->
+
+<div id="visor">
+<img id="imgGrande">
+</div>
+
 <script>
+
 function filtrar(tipo){
+
 let cont=document.getElementById("productos");
 let cards=document.querySelectorAll(".card");
 
@@ -365,7 +388,23 @@ cont.classList.add("mostrar");
 cards.forEach(c=>{
 c.style.display=c.classList.contains(tipo)?"block":"none";
 });
+
 }
+
+function abrirImagen(src){
+
+let visor=document.getElementById("visor");
+let img=document.getElementById("imgGrande");
+
+img.src=src;
+visor.style.display="flex";
+
+}
+
+document.getElementById("visor").onclick=function(){
+this.style.display="none";
+}
+
 </script>
 
 </body>
