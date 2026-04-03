@@ -2,11 +2,16 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+
+<!-- 🔥 RESPONSIVE -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Kuti Tika</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@300;400&family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Pacifico&display=swap" rel="stylesheet">
 
 <style>
+
 html { scroll-behavior: smooth; }
 
 body {
@@ -24,9 +29,7 @@ body {
 .redes-top img {
     width: 25px;
     margin: 5px;
-    transition: 0.3s;
 }
-.redes-top img:hover { transform: scale(1.2); }
 
 /* NAV */
 nav {
@@ -37,7 +40,6 @@ nav {
     padding: 15px;
     position: fixed;
     width: 100%;
-    z-index: 1000;
 }
 nav a {
     color: white;
@@ -50,7 +52,6 @@ nav a {
     height: 100vh;
     background: url("fondo2.png") center/cover;
 }
-
 .overlay {
     background: rgba(255,255,255,0.7);
     height: 100%;
@@ -58,65 +59,44 @@ nav a {
     justify-content: center;
     align-items: center;
 }
-
 .contenido-inicio {
     text-align: center;
     max-width: 800px;
     padding: 20px;
-    animation: fadeIn 1.5s ease;
 }
-
 .contenido-inicio h1 {
     font-family: 'Pacifico', cursive;
     font-size: 70px;
     color: #d81b60;
 }
-
 .contenido-inicio p {
     font-size: 20px;
-    line-height: 1.8;
 }
-
-/* BOTÓN */
 .btn {
     background: #d81b60;
     color: white;
     padding: 12px 25px;
     border-radius: 25px;
     text-decoration: none;
-    display: inline-block;
-    margin-top: 20px;
-    transition: 0.3s;
-}
-.btn:hover {
-    transform: scale(1.08);
-    box-shadow: 0 5px 15px rgba(216,27,96,0.4);
 }
 
-/* SECCIÓN */
+/* CATÁLOGO */
 .seccion {
     padding: 100px 20px;
     text-align: center;
 }
-
-/* CATEGORÍAS */
 .categorias {
     display: flex;
     justify-content: center;
     gap: 40px;
-}
-.categoria {
-    cursor: pointer;
-    transition: 0.3s;
 }
 .categoria img {
     width: 120px;
     height: 120px;
     border-radius: 50%;
 }
-.categoria:hover { transform: scale(1.2); }
 
-/* PRODUCTOS (OCULTOS AL INICIO) */
+/* PRODUCTOS */
 .productos {
     display: none;
     margin-top: 40px;
@@ -124,39 +104,25 @@ nav a {
     justify-content: center;
     gap: 30px;
 }
-
 .productos.mostrar {
     display: flex;
-    animation: aparecer 0.8s ease;
 }
-
-@keyframes aparecer {
-    from { opacity:0; transform: translateY(30px); }
-    to { opacity:1; transform: translateY(0); }
-}
-
-/* CARDS */
 .card {
     width: 250px;
     background: white;
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    transition: 0.4s;
-}
-.card:hover {
-    transform: translateY(-10px) scale(1.05);
 }
 .card img {
     width: 100%;
     height: 180px;
-    border-radius: 15px 15px 0 0;
 }
 .precio {
     color: #d81b60;
     font-weight: bold;
 }
 
-/* FOOTER */
+/* CONTACTO */
 .contacto {
     background: #f5d6d6;
     padding: 60px 20px;
@@ -166,23 +132,15 @@ nav a {
     justify-content: space-around;
     flex-wrap: wrap;
 }
-.col { max-width: 250px; }
-
 .logo {
     font-family: 'Pacifico', cursive;
     color: #d81b60;
 }
-
 .redes-footer img {
     width: 22px;
-    margin-right: 10px;
-    transition: 0.3s;
 }
-.redes-footer img:hover { transform: scale(1.2); }
-
 .pagos-footer img {
     width: 25px;
-    margin: 5px;
 }
 
 /* WHATSAPP */
@@ -194,12 +152,54 @@ nav a {
     padding: 12px;
     border-radius: 50%;
 }
-.whatsapp img { width: 35px; }
-
-@keyframes fadeIn {
-    from { opacity:0; transform: translateY(20px); }
-    to { opacity:1; transform: translateY(0); }
+.whatsapp img {
+    width: 35px;
 }
+
+/* ANIMACIONES */
+.animar {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s ease;
+}
+.animar.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 768px) {
+
+nav {
+    flex-direction: column;
+}
+
+.contenido-inicio h1 {
+    font-size: 40px;
+}
+
+.contenido-inicio p {
+    font-size: 16px;
+}
+
+.categorias {
+    flex-direction: column;
+}
+
+.productos {
+    flex-direction: column;
+}
+
+.card {
+    width: 90%;
+}
+
+.footer-contenido {
+    flex-direction: column;
+    text-align: center;
+}
+}
+
 </style>
 </head>
 
@@ -210,8 +210,6 @@ nav a {
 <a href="https://www.facebook.com/profile.php?id=61575739420670" target="_blank">
 <img src="fb.png">
 </a>
-<img src="ig.png" style="opacity:0.4;">
-<img src="tiktok.png" style="opacity:0.4;">
 </div>
 
 <!-- NAV -->
@@ -224,7 +222,7 @@ nav a {
 <!-- INICIO -->
 <section id="inicio" class="inicio">
 <div class="overlay">
-<div class="contenido-inicio">
+<div class="contenido-inicio animar">
 
 <h1>Kuti Tika</h1>
 
@@ -242,18 +240,18 @@ y la fuerza interior que todos llevamos dentro.
 </section>
 
 <!-- CATÁLOGO -->
-<section id="catalogo" class="seccion">
+<section id="catalogo" class="seccion animar">
 
 <h2>Catálogo</h2>
 
 <div class="categorias">
 
-<div class="categoria" onclick="filtrar('orquidea')">
+<div onclick="filtrar('orquidea')">
 <img src="orquideasol.png">
 <p>Orquídeas</p>
 </div>
 
-<div class="categoria" onclick="filtrar('rosa')">
+<div onclick="filtrar('rosa')">
 <img src="rosaroja.png">
 <p>Rosas</p>
 </div>
@@ -268,31 +266,14 @@ y la fuerza interior que todos llevamos dentro.
 <p class="precio">S/ 55</p>
 </div>
 
-<div class="card orquidea">
-<img src="orquideasol.png">
-<p>Orquídea Sol</p>
-<p class="precio">S/ 50</p>
-</div>
-
-<div class="card rosa">
-<img src="rosaamarilla.png">
-<p>Rosa Amarilla</p>
-<p class="precio">S/ 35</p>
-</div>
-
 <div class="card rosa">
 <img src="rosaroja.png">
 <p>Rosa Roja</p>
 <p class="precio">S/ 30</p>
 </div>
 
-<div class="card rosa">
-<img src="rosaazul.png">
-<p>Rosa Azul</p>
-<p class="precio">S/ 40</p>
 </div>
 
-</div>
 </section>
 
 <!-- CONTACTO -->
@@ -300,25 +281,17 @@ y la fuerza interior que todos llevamos dentro.
 
 <div class="footer-contenido">
 
-<div class="col">
+<div>
 <h2 class="logo">Kuti Tika</h2>
 <p>Arreglos florales con estilo y elegancia.</p>
-
-<div class="redes-footer">
-<a href="https://www.facebook.com/profile.php?id=61575739420670" target="_blank">
-<img src="fb.png">
-</a>
-<img src="ig.png" style="opacity:0.4;">
-<img src="tiktok.png" style="opacity:0.4;">
-</div>
 </div>
 
-<div class="col">
+<div>
 <h3>Información</h3>
 <p>Lima, Perú</p>
 </div>
 
-<div class="col">
+<div>
 <h3>Pagos</h3>
 <div class="pagos-footer">
 <img src="yape.png">
@@ -346,6 +319,25 @@ productos.forEach(p => {
 p.style.display = p.classList.contains(tipo) ? "block" : "none";
 });
 }
+
+/* ANIMACIONES */
+const elementos = document.querySelectorAll('.animar');
+
+function mostrarElementos() {
+    const trigger = window.innerHeight * 0.9;
+
+    elementos.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+
+        if (top < trigger) {
+            el.classList.add('visible');
+        }
+    });
+}
+
+window.addEventListener('scroll', mostrarElementos);
+window.addEventListener('load', mostrarElementos);
+setTimeout(mostrarElementos, 500);
 </script>
 
 </body>
