@@ -2,8 +2,6 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-
-<!-- 🔥 RESPONSIVE -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Kuti Tika</title>
@@ -11,31 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Pacifico&display=swap" rel="stylesheet">
 
 <style>
-
-html { scroll-behavior: smooth; }
-
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-}
-
-/* REDES ARRIBA */
-.redes-top {
-    position: fixed;
-    top: 10px;
-    left: 15px;
-    z-index: 2000;
-}
-.redes-top img {
-    width: 25px;
-    margin: 5px;
 }
 
 /* NAV */
 nav {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
     background: #ec407a;
     padding: 15px;
     position: fixed;
@@ -44,186 +27,126 @@ nav {
 nav a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-size: 14px;
 }
 
 /* INICIO */
 .inicio {
     height: 100vh;
     background: url("fondo2.png") center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .overlay {
-    background: rgba(255,255,255,0.7);
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.contenido-inicio {
+    background: rgba(255,255,255,0.8);
+    padding: 30px;
+    border-radius: 10px;
     text-align: center;
-    max-width: 800px;
-    padding: 20px;
+    width: 90%;
 }
-.contenido-inicio h1 {
+h1 {
     font-family: 'Pacifico', cursive;
-    font-size: 70px;
     color: #d81b60;
 }
-.contenido-inicio p {
-    font-size: 20px;
+p {
+    font-size: 16px;
 }
 .btn {
     background: #d81b60;
     color: white;
-    padding: 12px 25px;
-    border-radius: 25px;
-    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 10px;
 }
 
 /* CATÁLOGO */
 .seccion {
-    padding: 100px 20px;
+    padding: 80px 15px;
     text-align: center;
 }
 .categorias {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.categoria {
+    cursor: pointer;
 }
 .categoria img {
-    width: 120px;
-    height: 120px;
+    width: 90px;
     border-radius: 50%;
 }
 
 /* PRODUCTOS */
 .productos {
     display: none;
-    margin-top: 40px;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
+    margin-top: 20px;
 }
 .productos.mostrar {
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .card {
-    width: 250px;
+    width: 90%;
+    max-width: 300px;
+    margin: 10px;
     background: white;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
 .card img {
     width: 100%;
-    height: 180px;
 }
 .precio {
     color: #d81b60;
-    font-weight: bold;
 }
 
 /* CONTACTO */
 .contacto {
     background: #f5d6d6;
-    padding: 60px 20px;
-}
-.footer-contenido {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-.logo {
-    font-family: 'Pacifico', cursive;
-    color: #d81b60;
-}
-.redes-footer img {
-    width: 22px;
-}
-.pagos-footer img {
-    width: 25px;
+    padding: 30px;
+    text-align: center;
 }
 
 /* WHATSAPP */
 .whatsapp {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25d366;
-    padding: 12px;
-    border-radius: 50%;
-}
-.whatsapp img {
-    width: 35px;
+    bottom: 15px;
+    right: 15px;
 }
 
-/* ANIMACIONES */
-.animar {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 1s ease;
-}
-.animar.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+/* PC */
+@media(min-width:768px){
+nav a { font-size: 16px; }
 
-/* 📱 RESPONSIVE */
-@media (max-width: 768px) {
+.overlay { width: 60%; }
 
-nav {
-    flex-direction: column;
+.productos.mostrar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-
-.contenido-inicio h1 {
-    font-size: 40px;
-}
-
-.contenido-inicio p {
-    font-size: 16px;
-}
-
-.categorias {
-    flex-direction: column;
-}
-
-.productos {
-    flex-direction: column;
-}
-
 .card {
-    width: 90%;
-}
-
-.footer-contenido {
-    flex-direction: column;
-    text-align: center;
+    width: 250px;
 }
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- REDES -->
-<div class="redes-top">
-<a href="https://www.facebook.com/profile.php?id=61575739420670" target="_blank">
-<img src="fb.png">
-</a>
-</div>
-
-<!-- NAV -->
 <nav>
 <a href="#inicio">Inicio</a>
 <a href="#catalogo">Catálogo</a>
 <a href="#contacto">Contacto</a>
 </nav>
 
-<!-- INICIO -->
 <section id="inicio" class="inicio">
 <div class="overlay">
-<div class="contenido-inicio animar">
-
 <h1>Kuti Tika</h1>
 
 <p>
@@ -234,28 +157,22 @@ y la fuerza interior que todos llevamos dentro.
 </p>
 
 <a href="#catalogo" class="btn">Ver Catálogo</a>
-
-</div>
 </div>
 </section>
 
-<!-- CATÁLOGO -->
-<section id="catalogo" class="seccion animar">
-
+<section id="catalogo" class="seccion">
 <h2>Catálogo</h2>
 
 <div class="categorias">
-
-<div onclick="filtrar('orquidea')">
+<div onclick="filtrar('orquidea')" class="categoria">
 <img src="orquideasol.png">
 <p>Orquídeas</p>
 </div>
 
-<div onclick="filtrar('rosa')">
+<div onclick="filtrar('rosa')" class="categoria">
 <img src="rosaroja.png">
 <p>Rosas</p>
 </div>
-
 </div>
 
 <div id="productos" class="productos">
@@ -263,81 +180,38 @@ y la fuerza interior que todos llevamos dentro.
 <div class="card orquidea">
 <img src="orquideablanca.png">
 <p>Orquídea Blanca</p>
-<p class="precio">S/ 55</p>
+<p class="precio">S/55</p>
 </div>
 
 <div class="card rosa">
 <img src="rosaroja.png">
 <p>Rosa Roja</p>
-<p class="precio">S/ 30</p>
+<p class="precio">S/30</p>
 </div>
 
 </div>
-
 </section>
 
-<!-- CONTACTO -->
 <section id="contacto" class="contacto">
-
-<div class="footer-contenido">
-
-<div>
-<h2 class="logo">Kuti Tika</h2>
-<p>Arreglos florales con estilo y elegancia.</p>
-</div>
-
-<div>
-<h3>Información</h3>
+<h2>Kuti Tika</h2>
 <p>Lima, Perú</p>
-</div>
-
-<div>
-<h3>Pagos</h3>
-<div class="pagos-footer">
-<img src="yape.png">
-<img src="plin.png">
-<img src="https://cdn-icons-png.flaticon.com/512/196/196578.png">
-</div>
-</div>
-
-</div>
 </section>
 
-<!-- WHATSAPP -->
 <a href="https://wa.me/51945283024" class="whatsapp">
-<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="40">
 </a>
 
 <script>
-function filtrar(tipo) {
-let contenedor = document.getElementById("productos");
-let productos = document.querySelectorAll(".card");
+function filtrar(tipo){
+let cont = document.getElementById("productos");
+let cards = document.querySelectorAll(".card");
 
-contenedor.classList.add("mostrar");
+cont.classList.add("mostrar");
 
-productos.forEach(p => {
-p.style.display = p.classList.contains(tipo) ? "block" : "none";
+cards.forEach(c=>{
+c.style.display = c.classList.contains(tipo) ? "block":"none";
 });
 }
-
-/* ANIMACIONES */
-const elementos = document.querySelectorAll('.animar');
-
-function mostrarElementos() {
-    const trigger = window.innerHeight * 0.9;
-
-    elementos.forEach(el => {
-        const top = el.getBoundingClientRect().top;
-
-        if (top < trigger) {
-            el.classList.add('visible');
-        }
-    });
-}
-
-window.addEventListener('scroll', mostrarElementos);
-window.addEventListener('load', mostrarElementos);
-setTimeout(mostrarElementos, 500);
 </script>
 
 </body>
