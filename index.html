@@ -9,9 +9,26 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Pacifico&display=swap" rel="stylesheet">
 
 <style>
+
+/* 🔥 FONDO GLOBAL PREMIUM */
 body{
 margin:0;
 font-family:'Poppins',sans-serif;
+
+background:url("fondo2.png") no-repeat center center fixed;
+background-size:cover;
+}
+
+/* CAPA BLANCA SUAVE */
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(255,255,255,0.85);
+z-index:-1;
 }
 
 /* NAV */
@@ -33,29 +50,33 @@ text-decoration:none;
 font-weight:bold;
 }
 
+/* ESPACIO NAV */
 body{
 padding-top:70px;
 }
 
-/* REDES */
+/* 🔥 REDES HORIZONTALES */
 .redes-top{
 position:fixed;
-top:70px;
-left:10px;
-z-index:1000;
+top:15px;
+left:15px;
+z-index:1100;
 display:flex;
-flex-direction:column;
+gap:10px;
 }
 
 .redes-top img{
-width:22px;
-margin:5px 0;
+width:24px;
+transition:0.3s;
+}
+
+.redes-top img:hover{
+transform:scale(1.2);
 }
 
 /* INICIO */
 .inicio{
-height:100vh;
-background:url("fondo2.png") center/cover no-repeat;
+min-height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -64,30 +85,37 @@ padding:20px;
 
 .overlay{
 background:rgba(255,255,255,0.9);
-padding:25px;
-border-radius:12px;
+padding:30px;
+border-radius:15px;
 text-align:center;
-max-width:500px;
+max-width:600px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
 }
 
 h1{
 font-family:'Pacifico',cursive;
 color:#d81b60;
+font-size:36px;
 }
 
 .btn{
 background:#d81b60;
 color:white;
-padding:10px 20px;
-border-radius:20px;
+padding:12px 25px;
+border-radius:25px;
 display:inline-block;
-margin-top:10px;
+margin-top:15px;
 text-decoration:none;
+transition:0.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
 }
 
 /* SECCIONES */
 .seccion{
-padding:60px 20px;
+padding:70px 20px;
 text-align:center;
 }
 
@@ -95,7 +123,7 @@ text-align:center;
 .categorias{
 display:flex;
 justify-content:center;
-gap:20px;
+gap:25px;
 flex-wrap:wrap;
 }
 
@@ -104,22 +132,21 @@ cursor:pointer;
 }
 
 .categoria img{
-width:90px;
+width:100px;
 border-radius:50%;
 transition:0.3s;
 }
 
 .categoria img:hover{
-transform:scale(1.1);
+transform:scale(1.15);
 }
 
-/* 🔥 PRODUCTOS EN GRID (SOLUCIÓN REAL) */
+/* PRODUCTOS */
 .productos{
 display:none;
 margin-top:30px;
-
-grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
 }
 
 .productos.mostrar{
@@ -128,9 +155,14 @@ display:grid;
 
 .card{
 background:white;
-border-radius:10px;
-box-shadow:0 5px 10px rgba(0,0,0,0.2);
+border-radius:15px;
 overflow:hidden;
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
 }
 
 .card img{
@@ -146,7 +178,7 @@ font-weight:bold;
 
 /* CONTACTO */
 .contacto{
-background:#f5d6d6;
+background:rgba(255,255,255,0.9);
 padding:40px 20px;
 }
 
@@ -165,26 +197,35 @@ color:#d81b60;
 
 .redes-footer img,
 .pagos img{
-width:22px;
+width:25px;
 margin:5px;
 }
 
 /* WHATSAPP */
 .whatsapp{
 position:fixed;
-bottom:15px;
-right:15px;
+bottom:20px;
+right:20px;
 }
 
 .whatsapp img{
-width:45px;
+width:50px;
+transition:0.3s;
+}
+
+.whatsapp img:hover{
+transform:scale(1.1);
 }
 
 /* 📱 MOBILE */
 @media(max-width:600px){
 
+.redes-top{
+top:75px; /* baja redes en celular */
+}
+
 h1{
-font-size:26px;
+font-size:28px;
 }
 
 .overlay{
@@ -196,6 +237,7 @@ height:180px;
 }
 
 }
+
 </style>
 </head>
 
@@ -256,7 +298,6 @@ y la fuerza interior que todos llevamos dentro.
 
 <div id="productos" class="productos">
 
-<!-- ORQUIDEAS -->
 <div class="card orquidea">
 <img src="orquideablanca.png">
 <p>Orquídea Blanca</p>
@@ -269,7 +310,6 @@ y la fuerza interior que todos llevamos dentro.
 <p class="precio">S/50</p>
 </div>
 
-<!-- ROSAS -->
 <div class="card rosa">
 <img src="rosaroja.png">
 <p>Rosa Roja</p>
