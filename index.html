@@ -17,9 +17,10 @@ font-family:'Poppins',sans-serif;
 
 background:url("fondo2.png") no-repeat center center fixed;
 background-size:cover;
+color:#4a2c2a;
 }
 
-/* CAPA BLANCA SUAVE */
+/* EFECTO SUAVE */
 body::before{
 content:"";
 position:fixed;
@@ -27,7 +28,10 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(255,255,255,0.85);
+background:linear-gradient(
+rgba(255,255,255,0.7),
+rgba(255,255,255,0.9)
+);
 z-index:-1;
 }
 
@@ -50,12 +54,11 @@ text-decoration:none;
 font-weight:bold;
 }
 
-/* ESPACIO NAV */
 body{
 padding-top:70px;
 }
 
-/* 🔥 REDES HORIZONTALES */
+/* 🔥 REDES */
 .redes-top{
 position:fixed;
 top:15px;
@@ -81,21 +84,22 @@ display:flex;
 align-items:center;
 justify-content:center;
 padding:20px;
+text-align:center;
 }
 
-.overlay{
-background:rgba(255,255,255,0.9);
-padding:30px;
-border-radius:15px;
-text-align:center;
+/* 🔥 TEXTO SOBRE FONDO (SIN CAJA) */
+.contenido-inicio{
 max-width:600px;
-box-shadow:0 10px 30px rgba(0,0,0,0.2);
+color:#4a2c2a;
+
+animation:fadeIn 1.5s ease;
 }
 
 h1{
 font-family:'Pacifico',cursive;
 color:#d81b60;
-font-size:36px;
+font-size:40px;
+margin-bottom:10px;
 }
 
 .btn{
@@ -113,6 +117,12 @@ transition:0.3s;
 transform:scale(1.05);
 }
 
+/* ANIMACIÓN */
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(20px);}
+to{opacity:1; transform:translateY(0);}
+}
+
 /* SECCIONES */
 .seccion{
 padding:70px 20px;
@@ -127,13 +137,10 @@ gap:25px;
 flex-wrap:wrap;
 }
 
-.categoria{
-cursor:pointer;
-}
-
 .categoria img{
 width:100px;
 border-radius:50%;
+cursor:pointer;
 transition:0.3s;
 }
 
@@ -210,26 +217,23 @@ right:20px;
 
 .whatsapp img{
 width:50px;
-transition:0.3s;
-}
-
-.whatsapp img:hover{
-transform:scale(1.1);
 }
 
 /* 📱 MOBILE */
 @media(max-width:600px){
 
 .redes-top{
-top:75px; /* baja redes en celular */
+top:15px; /* 🔥 ya NO baja */
+left:10px;
+}
+
+nav{
+font-size:14px;
+gap:10px;
 }
 
 h1{
-font-size:28px;
-}
-
-.overlay{
-padding:20px;
+font-size:30px;
 }
 
 .card img{
@@ -261,7 +265,8 @@ height:180px;
 
 <!-- INICIO -->
 <section id="inicio" class="inicio">
-<div class="overlay">
+
+<div class="contenido-inicio">
 
 <h1>Kuti Tika</h1>
 
@@ -275,6 +280,7 @@ y la fuerza interior que todos llevamos dentro.
 <a href="#catalogo" class="btn">Ver Catálogo</a>
 
 </div>
+
 </section>
 
 <!-- CATÁLOGO -->
@@ -284,12 +290,12 @@ y la fuerza interior que todos llevamos dentro.
 
 <div class="categorias">
 
-<div class="categoria" onclick="filtrar('orquidea')">
+<div onclick="filtrar('orquidea')">
 <img src="orquideasol.png">
 <p>Orquídeas</p>
 </div>
 
-<div class="categoria" onclick="filtrar('rosa')">
+<div onclick="filtrar('rosa')">
 <img src="rosaroja.png">
 <p>Rosas</p>
 </div>
