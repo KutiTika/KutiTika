@@ -3,13 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Kuti Tika</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Pacifico&display=swap" rel="stylesheet">
 
 <style>
-body { margin:0; font-family:'Poppins', sans-serif; }
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+}
 
 /* NAV */
 nav{
@@ -19,45 +21,60 @@ gap:20px;
 background:#ec407a;
 padding:15px;
 position:fixed;
+top:0;
 width:100%;
 z-index:1000;
 }
+
 nav a{
 color:white;
 text-decoration:none;
+font-weight:bold;
 }
 
-/* REDES */
+/* ESPACIO PARA NAV */
+body{
+padding-top:70px;
+}
+
+/* REDES SUPERIOR */
 .redes-top{
 position:fixed;
 top:10px;
 left:10px;
-z-index:2000;
+z-index:1100;
+display:flex;
+gap:5px;
 }
+
 .redes-top img{
-width:25px;
-margin:5px;
+width:22px;
 }
 
 /* INICIO */
 .inicio{
 height:100vh;
-background:url("fondo2.png") center/cover;
+background:url("fondo2.png") center/cover no-repeat;
 display:flex;
 align-items:center;
 justify-content:center;
+padding:20px;
 }
+
 .overlay{
-background:rgba(255,255,255,0.85);
-padding:30px;
-border-radius:10px;
+background:rgba(255,255,255,0.9);
+padding:25px;
+border-radius:12px;
 text-align:center;
-width:90%;
+max-width:500px;
 }
+
 h1{
-font-family:'Pacifico', cursive;
+font-family:'Pacifico',cursive;
 color:#d81b60;
+font-size:32px;
 }
+
 .btn{
 background:#d81b60;
 color:white;
@@ -65,11 +82,12 @@ padding:10px 20px;
 border-radius:20px;
 display:inline-block;
 margin-top:10px;
+text-decoration:none;
 }
 
-/* SECCIÓN */
+/* SECCIONES */
 .seccion{
-padding:80px 15px;
+padding:60px 20px;
 text-align:center;
 }
 
@@ -80,49 +98,50 @@ justify-content:center;
 gap:20px;
 flex-wrap:wrap;
 }
-.categoria{
-cursor:pointer;
-}
+
 .categoria img{
 width:90px;
 border-radius:50%;
+cursor:pointer;
+transition:0.3s;
 }
 
-/* 🔥 PRODUCTOS CON SCROLL */
+.categoria img:hover{
+transform:scale(1.1);
+}
+
+/* PRODUCTOS */
 .productos{
 display:none;
-margin-top:20px;
 gap:20px;
-
+margin-top:20px;
 overflow-x:auto;
-display:flex;
 scroll-snap-type:x mandatory;
-scroll-behavior:smooth;
 padding-bottom:10px;
 }
+
 .productos.mostrar{
 display:flex;
 }
 
-/* ocultar scroll */
 .productos::-webkit-scrollbar{
 display:none;
 }
 
-/* CARD */
 .card{
-min-width:250px;
+min-width:220px;
 flex:0 0 auto;
 scroll-snap-align:center;
-
 background:white;
 border-radius:10px;
 box-shadow:0 5px 10px rgba(0,0,0,0.2);
 }
+
 .card img{
 width:100%;
 border-radius:10px 10px 0 0;
 }
+
 .precio{
 color:#d81b60;
 font-weight:bold;
@@ -133,22 +152,22 @@ font-weight:bold;
 background:#f5d6d6;
 padding:40px 20px;
 }
+
 .footer{
 display:flex;
 justify-content:space-around;
 flex-wrap:wrap;
-text-align:center;
+gap:20px;
 }
+
 .logo{
-font-family:'Pacifico', cursive;
+font-family:'Pacifico',cursive;
 color:#d81b60;
 }
-.redes-footer img{
-width:25px;
-margin:5px;
-}
+
+.redes-footer img,
 .pagos img{
-width:25px;
+width:22px;
 margin:5px;
 }
 
@@ -157,14 +176,37 @@ margin:5px;
 position:fixed;
 bottom:15px;
 right:15px;
-}
-.whatsapp img{
-width:40px;
+z-index:1000;
 }
 
-/* RESPONSIVE */
-@media(min-width:768px){
-.overlay{width:60%;}
+.whatsapp img{
+width:45px;
+}
+
+/* 📱 RESPONSIVE */
+@media(max-width:768px){
+
+nav{
+font-size:14px;
+gap:10px;
+}
+
+.redes-top{
+top:60px; /* 🔥 baja redes para que no choque con menú */
+}
+
+.overlay{
+padding:20px;
+}
+
+h1{
+font-size:26px;
+}
+
+.card{
+min-width:180px;
+}
+
 }
 </style>
 </head>
@@ -176,8 +218,8 @@ width:40px;
 <a href="https://www.facebook.com/profile.php?id=61575739420670" target="_blank">
 <img src="fb.png">
 </a>
-<img src="ig.png" style="opacity:0.4;">
-<img src="tiktok.png" style="opacity:0.4;">
+<img src="ig.png">
+<img src="tiktok.png">
 </div>
 
 <!-- NAV -->
@@ -212,12 +254,12 @@ y la fuerza interior que todos llevamos dentro.
 
 <div class="categorias">
 
-<div class="categoria" onclick="filtrar('orquidea')">
+<div onclick="filtrar('orquidea')">
 <img src="orquideasol.png">
 <p>Orquídeas</p>
 </div>
 
-<div class="categoria" onclick="filtrar('rosa')">
+<div onclick="filtrar('rosa')">
 <img src="rosaroja.png">
 <p>Rosas</p>
 </div>
@@ -226,7 +268,6 @@ y la fuerza interior que todos llevamos dentro.
 
 <div id="productos" class="productos">
 
-<!-- ORQUIDEAS -->
 <div class="card orquidea">
 <img src="orquideablanca.png">
 <p>Orquídea Blanca</p>
@@ -239,7 +280,6 @@ y la fuerza interior que todos llevamos dentro.
 <p class="precio">S/50</p>
 </div>
 
-<!-- ROSAS -->
 <div class="card rosa">
 <img src="rosaroja.png">
 <p>Rosa Roja</p>
@@ -269,19 +309,19 @@ y la fuerza interior que todos llevamos dentro.
 
 <div>
 <h2 class="logo">Kuti Tika</h2>
-<p>Arreglos florales con estilo y elegancia.</p>
+<p>Arreglos florales elegantes 🌸</p>
 
 <div class="redes-footer">
 <a href="https://www.facebook.com/profile.php?id=61575739420670" target="_blank">
 <img src="fb.png">
 </a>
-<img src="ig.png" style="opacity:0.4;">
-<img src="tiktok.png" style="opacity:0.4;">
+<img src="ig.png">
+<img src="tiktok.png">
 </div>
 </div>
 
 <div>
-<h3>Información</h3>
+<h3>Ubicación</h3>
 <p>Lima, Perú</p>
 </div>
 
@@ -305,13 +345,13 @@ y la fuerza interior que todos llevamos dentro.
 
 <script>
 function filtrar(tipo){
-let cont = document.getElementById("productos");
-let cards = document.querySelectorAll(".card");
+let cont=document.getElementById("productos");
+let cards=document.querySelectorAll(".card");
 
 cont.classList.add("mostrar");
 
 cards.forEach(c=>{
-c.style.display = c.classList.contains(tipo) ? "block":"none";
+c.style.display=c.classList.contains(tipo)?"block":"none";
 });
 }
 </script>
